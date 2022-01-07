@@ -1,10 +1,10 @@
 // #region 'Importing'
 import { useState } from 'react'
+
 import initialItems from '../src/data/data'
+import duplicateInitialItems from '../src/data/data2'
 
-import duplicateInitialItems from '../src/data/data'
-
-import './style.css'
+import '../src/style.css'
 import '../src/App.css'
 
 import HeaderMenu from './components/Header/HeaderMenu'
