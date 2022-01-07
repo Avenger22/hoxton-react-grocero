@@ -23,10 +23,64 @@ function App() {
   
   const [buttonStoreRemove, setButtonStoreRemove] = useState('')
   const [buttonCartCalculation, setButtonCartCalculation] = useState('')
+
+  const [buttonSortOptions, setButtonSortOptions]  = useState('')
+  const [buttonClear, setButtonClear]  = useState('')
   // #endregion
 
   // #region 'Conditional rendering and control of app'
   let filteredItems = items //very important for conditional what to show, is connected with state and updating it etc
+
+  function filterByName(filteredItems) {
+    return filteredItems.filter(item => item.name === buttonCategories)
+  }
+
+  function filterBySortingAlphabet(filteredItems) {
+
+    return filteredItems.sort((a, b) => 
+      (a.price > b.price) ? 1 : (a.price === b.price) ? ((a.name > b.name) ? 1 : -1) : -1 )
+
+  }
+
+  function filterBySortingPrice(filteredItems) {
+
+    return filteredItems.sort((function(a, b){
+
+      if(a.name < b.name) { return -1 }
+      if(a.name > b.name) { return 1 }
+      return 0
+
+    }))
+
+  }
+  
+  if (buttonCategories) {
+    filteredItems = filterByName(filteredItems)
+  }
+
+  if (buttonSortOptions === 'alphabet' && buttonCategories === '') {
+    filteredItems = filterBySortingAlphabet(filteredItems)
+  }
+
+  // else if (buttonSortOptions === 'alphabet' && buttonCategories !== '') {
+  //   alert('You cant sort only 1 item')
+  // }
+
+  else if (buttonSortOptions === 'price' && buttonCategories === '') {
+    filteredItems = filterBySortingPrice(filteredItems)
+  }
+
+  // else if (buttonSortOptions === 'price' && buttonCategories !== '') {
+  //   alert('You cant sort only 1 item')
+  // }
+
+  else if (buttonSortOptions === 'remove' && buttonCategories === '') {
+    filteredItems = items
+  }
+
+  // else if (buttonSortOptions === 'remove' && buttonCategories !== '') {
+  //   alert('You cant sort only 1 item')
+  // }
   // #endregion
 
   // #region 'Returning the HTML, basically all the APP'
@@ -37,29 +91,21 @@ function App() {
       <HeaderMenu 
         filteredItems = {filteredItems} //passing Props
 
-        buttonCategories = {buttonCategories}
         setButtonCategories = {setButtonCategories}
-
-        buttonStoreRemove = {buttonStoreRemove}
         setButtonStoreRemove = {setButtonStoreRemove}
 
-        buttonStoreAdd = {buttonStoreAdd}
+        setButtonSortOptions = {setButtonSortOptions}
         setButtonStoreAdd = {setButtonStoreAdd}
 
-        buttonStoreClicked = {buttonStoreClicked}
         setButtonStoreClicked = {setButtonStoreClicked}
+        setButtonClear = {setButtonClear}
       />
       
       <MainMenu 
         filteredItems = {filteredItems} //passing props so i can use state in other components too and update it there
-
-        cartItems = {cartItems} 
         setCartItems = {setCartItems}
-
-        clearClicked = {clearClicked}
+        
         setClearClicked = {setClearClicked}
-
-        buttonCartCalculation = {buttonCartCalculation}
         setButtonCartCalculation = {setButtonCartCalculation}
       />
      

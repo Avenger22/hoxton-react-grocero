@@ -6,7 +6,7 @@ import "../../app.css"
 
 function MainItems(props) {
 
-    const {filteredItems} = props
+    const {filteredItems, setCartItems, setButtonCartCalculation} = props
 
     return (
 
@@ -16,6 +16,8 @@ function MainItems(props) {
 
           <MainItem 
             filteredItems = {filteredItems}
+            setCartItems = {setCartItems}
+            setButtonCartCalculation = {setButtonCartCalculation}
           />
 
         </ul>

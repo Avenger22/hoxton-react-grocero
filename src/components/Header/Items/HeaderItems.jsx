@@ -4,8 +4,8 @@ function HeaderItems(props) {
 
     //decounstructing an object
     const {
-        filteredItems, buttonStoreRemove, setButtonStoreRemove, buttonStoreClicked, 
-        setButtonStoreClicked, buttonStoreAdd, setButtonStoreAdd
+        filteredItems, setButtonStoreRemove, 
+        setButtonStoreClicked, setButtonStoreAdd
     } = props
 
     return (
@@ -18,13 +18,9 @@ function HeaderItems(props) {
                     key = {`item-${item.id}`} //important for having each li an ID as KEY PROP
                     item = {item}
 
-                    buttonStoreRemove = {buttonStoreRemove}
                     setButtonStoreRemove = {setButtonStoreRemove}
-
-                    buttonStoreAdd = {buttonStoreAdd}
                     setButtonStoreAdd = {setButtonStoreAdd}
 
-                    buttonStoreClicked = {buttonStoreClicked}
                     setButtonStoreClicked = {setButtonStoreClicked}
                 />
 

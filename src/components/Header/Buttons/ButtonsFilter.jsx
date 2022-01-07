@@ -2,7 +2,7 @@ import ButtonFilter from './ButtonFilter'
 
 function ButtonsFilter(props) {
 
-    const {buttonCategories, setButtonCategories, filteredItems} = props
+    const {setButtonCategories, filteredItems} = props
     
     return (
 
@@ -14,7 +14,6 @@ function ButtonsFilter(props) {
                     key = {`buttonFilter-${item.id}`}
                     item = {item}
 
-                    buttonCategories = {buttonCategories}
                     setButtonCategories = {setButtonCategories}
                 />
 

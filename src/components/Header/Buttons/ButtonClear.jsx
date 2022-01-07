@@ -1,6 +1,6 @@
-function ButtonSort(props) {
+function ButtonClear(props) {
 
-    const {typeSort, setButtonSortOptions} = props 
+    const {typeSort, setButtonClear} = props 
 
     let className = `store--btn-sort-${typeSort}`
 
@@ -10,12 +10,12 @@ function ButtonSort(props) {
             className={className}
 
             onClick={function () {
-                setButtonSortOptions(typeSort)
+                setButtonClear(typeSort)
             }}
 
         >
 
-            Sort by {typeSort}:
+            Clear by {typeSort}:
 
         </button>
 
@@ -23,4 +23,4 @@ function ButtonSort(props) {
 
 }
 
-export default ButtonSort
+export default ButtonClear
