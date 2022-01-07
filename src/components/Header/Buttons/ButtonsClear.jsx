@@ -2,7 +2,7 @@ import ButtonClear from "./ButtonClear"
 
 function ButtonsClear(props){
 
-    const {setButtonClear} = props 
+    const {setButtonClear, setButtonCategories, setButtonSortOptions} = props 
     
     let typeSortArray = ['clearSort', 'clearFilter']
 
@@ -15,6 +15,9 @@ function ButtonsClear(props){
                 <ButtonClear 
                     key = {typeSort}
                     setButtonClear = {setButtonClear}
+
+                    setButtonCategories = {setButtonCategories}
+                    setButtonSortOptions = {setButtonSortOptions}
 
                     typeSort = {typeSort}
                 />

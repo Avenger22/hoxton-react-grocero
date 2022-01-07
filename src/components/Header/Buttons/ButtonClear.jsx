@@ -1,6 +1,6 @@
 function ButtonClear(props) {
 
-    const {typeSort, setButtonClear} = props 
+    const {typeSort, setButtonClear, setButtonCategories, setButtonSortOptions} = props 
 
     let className = `store--btn-sort-${typeSort}`
 
@@ -10,7 +10,17 @@ function ButtonClear(props) {
             className={className}
 
             onClick={function () {
-                setButtonClear(typeSort)
+
+                if (typeSort === 'clearSort') {
+                    const empty = ''
+                    setButtonSortOptions(empty)
+                }
+
+                else if (typeSort === 'clearFilter') {
+                    const empty = '' 
+                    setButtonCategories(empty)
+                }
+
             }}
 
         >

@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import initialItems from '../src/data/data'
 
+import duplicateInitialItems from '../src/data/data'
+
 import './style.css'
 import '../src/App.css'
 
@@ -13,6 +15,8 @@ function App() {
 
   //#region 'State Object'
   const [items, setItems] = useState(initialItems)
+  const [itemsInitial, setItemsInitial] = useState(duplicateInitialItems)
+
   const [buttonCategories, setButtonCategories] = useState('')
 
   const [clearClicked, setClearClicked] = useState(false)
@@ -30,6 +34,8 @@ function App() {
 
   // #region 'Conditional rendering and control of app'
   let filteredItems = items //very important for conditional what to show, is connected with state and updating it etc
+  let initialFilteredItems = itemsInitial
+
 
   function filterByName(filteredItems) {
     return filteredItems.filter(item => item.name === buttonCategories)
@@ -54,33 +60,27 @@ function App() {
 
   }
   
-  if (buttonCategories) {
+
+  if (buttonCategories !== '') {
     filteredItems = filterByName(filteredItems)
   }
+
+  else if (buttonCategories === '') {
+    filteredItems = initialFilteredItems
+  }
+
 
   if (buttonSortOptions === 'alphabet' && buttonCategories === '') {
     filteredItems = filterBySortingAlphabet(filteredItems)
   }
 
-  // else if (buttonSortOptions === 'alphabet' && buttonCategories !== '') {
-  //   alert('You cant sort only 1 item')
-  // }
-
   else if (buttonSortOptions === 'price' && buttonCategories === '') {
     filteredItems = filterBySortingPrice(filteredItems)
   }
 
-  // else if (buttonSortOptions === 'price' && buttonCategories !== '') {
-  //   alert('You cant sort only 1 item')
-  // }
-
-  else if (buttonSortOptions === 'remove' && buttonCategories === '') {
-    filteredItems = items
+  else if (buttonSortOptions === ''){
+    filteredItems = initialFilteredItems
   }
-
-  // else if (buttonSortOptions === 'remove' && buttonCategories !== '') {
-  //   alert('You cant sort only 1 item')
-  // }
   // #endregion
 
   // #region 'Returning the HTML, basically all the APP'

@@ -23,6 +23,9 @@ function ButtonsWrapper(props) {
 
             <ButtonsClear 
               setButtonClear = {setButtonClear}
+              
+              setButtonCategories = {setButtonCategories}
+              setButtonSortOptions = {setButtonSortOptions}
             />
 
           </div>
