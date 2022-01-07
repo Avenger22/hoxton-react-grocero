@@ -1,24 +1,31 @@
 import '../HeaderMenu.css'
 import ButtonsSort from './ButtonsSort'
 import ButtonsFilter from './ButtonsFilter'
+import ButtonsClear from './ButtonsClear'
 
 function ButtonsWrapper(props) {
 
-    const {buttonCategories, setButtonCategories, filteredItems} = props
+    const {setButtonCategories, filteredItems, 
+      setButtonSortOptions, setButtonClear} = props
 
     return (
 
         <div className="button-wrapper">
 
             <ButtonsSort 
-              buttonCategories = {buttonCategories}
-              setButtonCategories = {setButtonCategories}
+              setButtonSortOptions = {setButtonSortOptions}
             />
 
             <ButtonsFilter 
-              buttonCategories = {buttonCategories}
               setButtonCategories = {setButtonCategories}
               filteredItems = {filteredItems}
+            />
+
+            <ButtonsClear 
+              setButtonClear = {setButtonClear}
+              
+              setButtonCategories = {setButtonCategories}
+              setButtonSortOptions = {setButtonSortOptions}
             />
 
           </div>

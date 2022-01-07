@@ -7,7 +7,7 @@ import EmptyButton from '../Main/EmptyAndTotal/EmptyButton'
 
 function MainMenu(props) {
 
-    const {filteredItems} = props
+    const {filteredItems, setClearClicked, setButtonCartCalculation, setCartItems} = props
 
     return (
 
@@ -17,11 +17,15 @@ function MainMenu(props) {
 
             <MainItems 
                 filteredItems = {filteredItems}
+                setCartItems = {setCartItems}
+                setButtonCartCalculation = {setButtonCartCalculation}
             />
             
             <TotalSection />
 
-            <EmptyButton />
+            <EmptyButton 
+                setClearClicked = {setClearClicked}
+            />
 
         </main>
           

@@ -2,8 +2,9 @@ import ButtonSort from '../Buttons/ButtonSort'
 
 function ButtonsSort(props) {
 
-    const {buttonCategories, setButtonCategories} = props
-    let typeSortArray = ['alphabet', 'remove', 'price']
+    const {setButtonSortOptions} = props
+    
+    let typeSortArray = ['alphabet', 'price']
 
     return (
 
@@ -13,8 +14,8 @@ function ButtonsSort(props) {
 
                 <ButtonSort 
                     key = {typeSort}
-                    buttonCategories = {buttonCategories}
-                    setButtonCategories = {setButtonCategories}
+                    setButtonSortOptions = {setButtonSortOptions}
+
                     typeSort = {typeSort}
                 />
 

@@ -7,9 +7,9 @@ function HeaderMenu(props) {
 
     //decounstructing an object
     const {
-      filteredItems, buttonCategories, setButtonCategories,
-      buttonStoreRemove, setButtonStoreRemove, buttonStoreClicked, 
-      setButtonStoreClicked, buttonStoreAdd, setButtonStoreAdd
+      filteredItems,setButtonCategories,
+      setButtonStoreRemove, setButtonStoreClicked, setButtonStoreAdd, 
+      setButtonSortOptions, setButtonClear
     } = props
 
     return (
@@ -20,24 +20,20 @@ function HeaderMenu(props) {
 
         <HeaderItems 
           filteredItems = {filteredItems} 
-
-          buttonStoreRemove = {buttonStoreRemove}
           setButtonStoreRemove = {setButtonStoreRemove}
 
-          buttonStoreAdd = {buttonStoreAdd}
           setButtonStoreAdd = {setButtonStoreAdd}
-
-          buttonStoreClicked = {buttonStoreClicked}
           setButtonStoreClicked = {setButtonStoreClicked}
         />
 
         <div className="store--sort">
 
           <ButtonsWrapper 
-            buttonCategories = {buttonCategories}
             setButtonCategories = {setButtonCategories}
-            
             filteredItems = {filteredItems}
+            
+            setButtonSortOptions = {setButtonSortOptions}
+            setButtonClear = {setButtonClear}
           />
           
         </div>

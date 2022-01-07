@@ -4,7 +4,7 @@ import '../../app.css'
 
 function MainItem(props) {
 
-    const {filteredItems} = props
+    const {filteredItems, setCartItems, setButtonCartCalculation} = props
     
     return (
 
