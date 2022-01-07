@@ -1,4 +1,5 @@
-import "../../app.css"
+import '../../style.css'
+import '../../app.css'
 
 function EmptyButton() {
 

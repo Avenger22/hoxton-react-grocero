@@ -1,5 +1,6 @@
 import "../Main/MainItem.css"
-import "../../app.css"
+import '../../style.css'
+import '../../app.css'
 
 function MainItem() {
 

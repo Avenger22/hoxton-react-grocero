@@ -1,3 +1,6 @@
+import '../../style.css'
+import '../../app.css'
+
 import "../Main/TotalSection.css"
 import "../../app.css"
 

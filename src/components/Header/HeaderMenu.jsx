@@ -3,6 +3,7 @@ import ButtonsWrapper from '../Header/ButtonsWrapper'
 
 import "../Header/HeaderMenu.css"
 import "../../app.css"
+import '../../style.css'
 
 function HeaderMenu() {
 

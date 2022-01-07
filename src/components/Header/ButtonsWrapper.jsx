@@ -1,3 +1,6 @@
+import '../../style.css'
+import '../../app.css'
+
 function ButtonsWrapper() {
 
     return (

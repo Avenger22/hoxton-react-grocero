@@ -1,3 +1,6 @@
+import '../../style.css'
+import '../../app.css'
+
 import MainItems from '../Main/MainItems'
 import TotalSection from '../Main/TotalSection'
 import EmptyButton from '../Main/EmptyButton'
