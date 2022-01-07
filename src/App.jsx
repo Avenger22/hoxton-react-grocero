@@ -11,17 +11,26 @@ import MainMenu from './components/Main/MainMenu'
 
 function App() {
 
+  //#region 'State Object'
+  const [items, setItems] = useState(initialItems)
+  // console.log(items)
+  // #endregion
+
+  // #region 'Returning the HTML'
   return (
 
     <div className="app">
 
-      <HeaderMenu />
+      <HeaderMenu 
+        items = {items}
+      />
       
       <MainMenu />
      
     </div>
 
   )
+  // #endregion
 
 }
 

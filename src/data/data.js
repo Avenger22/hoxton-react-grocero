@@ -1,12 +1,13 @@
-export default {
-  items: [
+export default 
+   [
     {
       id: 1,
       name: "beetroot",
       price: 6.78,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '001-beetroot.svg'
     },
     {
       id: 2,
@@ -14,7 +15,8 @@ export default {
       price: 0.75,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '002-carrot.svg'
     },
     {
       id: 3,
@@ -22,7 +24,8 @@ export default {
       price: 0.55,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '003-apple.svg'
     },
     {
       id: 4,
@@ -30,7 +33,8 @@ export default {
       price: 0.25,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '004-apricot.svg'
     },
     {
       id: 5,
@@ -38,7 +42,8 @@ export default {
       price: 1.25,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '005-avocado.svg'
     },
     {
       id: 6,
@@ -46,7 +51,8 @@ export default {
       price: 1.7,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '006-bananas.svg'
     },
     {
       id: 7,
@@ -54,7 +60,8 @@ export default {
       price: 7.55,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '007-bell-pepper.svg'
     },
     {
       id: 8,
@@ -62,7 +69,8 @@ export default {
       price: 9.9,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '008-berry.svg'
     },
     {
       id: 9,
@@ -70,7 +78,8 @@ export default {
       price: 4.5,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '009-blueberry.svg'
     },
     {
       id: 10,
@@ -78,7 +87,7 @@ export default {
       price: 5.75,
       inStock: 30,
       inCart: 0,
-      filterOnly: false
+      filterOnly: false,
+      image: '010-eggplant.svg'
     }
   ]
-}

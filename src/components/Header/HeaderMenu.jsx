@@ -2,10 +2,12 @@ import HeaderItems from '../Header/HeaderItems'
 import ButtonsWrapper from '../Header/ButtonsWrapper'
 
 import "../Header/HeaderMenu.css"
-import "../../app.css"
-import '../../style.css'
+// import "../../app.css"
+// import '../../style.css'
 
-function HeaderMenu() {
+function HeaderMenu(props) {
+
+    const {items} = props
 
     return (
 
@@ -13,7 +15,9 @@ function HeaderMenu() {
 
         <h1>Grocero</h1>
 
-        <HeaderItems />
+        <HeaderItems 
+          items = {items} 
+        />
 
         <div className="store--sort">
 
