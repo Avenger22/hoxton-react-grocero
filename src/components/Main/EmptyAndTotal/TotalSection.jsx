@@ -1,8 +1,7 @@
-import '../../style.css'
-import '../../app.css'
+import '../../../style.css'
+import '../../../app.css'
 
-import "../Main/TotalSection.css"
-import "../../app.css"
+import '../EmptyAndTotal/TotalSection.css'
 
 function TotalSection() {
 

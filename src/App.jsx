@@ -17,13 +17,16 @@ function App() {
 
   const [clearClicked, setClearClicked] = useState(false)
   const [buttonStoreAdd, setButtonStoreAdd] = useState('')
+
+  const [buttonStoreClicked, setButtonStoreClicked] = useState(false)
+  const [cartItems, setCartItems] = useState([])
   
   const [buttonStoreRemove, setButtonStoreRemove] = useState('')
   const [buttonCartCalculation, setButtonCartCalculation] = useState('')
   // #endregion
 
   // #region 'Conditional rendering and control of app'
-  let filteredItems = items
+  let filteredItems = items //very important for conditional what to show, is connected with state and updating it etc
   // #endregion
 
   // #region 'Returning the HTML, basically all the APP'
@@ -32,11 +35,32 @@ function App() {
     <div className="app">
 
       <HeaderMenu 
-        filteredItems = {filteredItems}
+        filteredItems = {filteredItems} //passing Props
+
+        buttonCategories = {buttonCategories}
+        setButtonCategories = {setButtonCategories}
+
+        buttonStoreRemove = {buttonStoreRemove}
+        setButtonStoreRemove = {setButtonStoreRemove}
+
+        buttonStoreAdd = {buttonStoreAdd}
+        setButtonStoreAdd = {setButtonStoreAdd}
+
+        buttonStoreClicked = {buttonStoreClicked}
+        setButtonStoreClicked = {setButtonStoreClicked}
       />
       
       <MainMenu 
-        filteredItems = {filteredItems} 
+        filteredItems = {filteredItems} //passing props so i can use state in other components too and update it there
+
+        cartItems = {cartItems} 
+        setCartItems = {setCartItems}
+
+        clearClicked = {clearClicked}
+        setClearClicked = {setClearClicked}
+
+        buttonCartCalculation = {buttonCartCalculation}
+        setButtonCartCalculation = {setButtonCartCalculation}
       />
      
     </div>

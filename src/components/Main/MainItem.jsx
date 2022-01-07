@@ -1,7 +1,6 @@
 import "../Main/MainItem.css"
 import '../../style.css'
 import '../../app.css'
-import '../Main/TotalSection.css'
 
 function MainItem(props) {
 

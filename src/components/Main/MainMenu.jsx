@@ -2,8 +2,8 @@ import '../../style.css'
 import '../../app.css'
 
 import MainItems from '../Main/MainItems'
-import TotalSection from '../Main/TotalSection'
-import EmptyButton from '../Main/EmptyButton'
+import TotalSection from '../Main/EmptyAndTotal/TotalSection'
+import EmptyButton from '../Main/EmptyAndTotal/EmptyButton'
 
 function MainMenu(props) {
 

@@ -1,13 +1,16 @@
-import HeaderItems from '../Header/HeaderItems'
-import ButtonsWrapper from '../Header/ButtonsWrapper'
+import HeaderItems from '../Header/Items/HeaderItems'
+import ButtonsWrapper from '../Header/Buttons/ButtonsWrapper'
 
 import "../Header/HeaderMenu.css"
-// import "../../app.css"
-// import '../../style.css'
 
 function HeaderMenu(props) {
 
-    const {filteredItems} = props
+    //decounstructing an object
+    const {
+      filteredItems, buttonCategories, setButtonCategories,
+      buttonStoreRemove, setButtonStoreRemove, buttonStoreClicked, 
+      setButtonStoreClicked, buttonStoreAdd, setButtonStoreAdd
+    } = props
 
     return (
 
@@ -17,11 +20,25 @@ function HeaderMenu(props) {
 
         <HeaderItems 
           filteredItems = {filteredItems} 
+
+          buttonStoreRemove = {buttonStoreRemove}
+          setButtonStoreRemove = {setButtonStoreRemove}
+
+          buttonStoreAdd = {buttonStoreAdd}
+          setButtonStoreAdd = {setButtonStoreAdd}
+
+          buttonStoreClicked = {buttonStoreClicked}
+          setButtonStoreClicked = {setButtonStoreClicked}
         />
 
         <div className="store--sort">
 
-          <ButtonsWrapper />
+          <ButtonsWrapper 
+            buttonCategories = {buttonCategories}
+            setButtonCategories = {setButtonCategories}
+            
+            filteredItems = {filteredItems}
+          />
           
         </div>
             

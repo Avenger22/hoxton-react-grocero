@@ -1,4 +1,5 @@
-import MainItem from "./MainItem"
+import MainItem from "../Main/MainItem"
+
 import "../Main/MainItem.css"
 import '../../style.css'
 import "../../app.css"

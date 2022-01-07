@@ -3,7 +3,11 @@
 
 function HeaderItem(props) {
 
-    const {item} = props
+    //decounstructing an object
+    const {
+        item, buttonStoreRemove, setButtonStoreRemove, buttonStoreClicked, 
+        setButtonStoreClicked, buttonStoreAdd, setButtonStoreAdd
+    } = props
 
     //fixed a BUG here used {} before items.map and that is an error cause it expected an expression of jsx not an js return
     //also bug on item => {} because in arrow funcitons we are using just 1 return no multiple expressions etc
