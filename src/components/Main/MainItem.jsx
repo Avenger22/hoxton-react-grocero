@@ -1,6 +1,7 @@
 import "../Main/MainItem.css"
 import '../../style.css'
 import '../../app.css'
+import '../Main/TotalSection.css'
 
 function MainItem() {
 
@@ -10,11 +11,12 @@ function MainItem() {
 
             <img
                 className="cart--item-icon"
-                src="assets/icons/001-beetroot.svg"
+                src="../../assets/icons/002-carrot.svg"
                 alt="beetroot"
-            />`
+            />
 
             <p>beetroot</p>
+
             <button className="quantity-btn remove-btn center">-</button>
             <span className="quantity-text center">1</span>
             <button className="quantity-btn add-btn center">+</button>
