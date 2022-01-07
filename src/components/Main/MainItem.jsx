@@ -3,8 +3,10 @@ import '../../style.css'
 import '../../app.css'
 import '../Main/TotalSection.css'
 
-function MainItem() {
+function MainItem(props) {
 
+    const {filteredItems} = props
+    
     return (
 
         <li>

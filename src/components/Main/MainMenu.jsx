@@ -5,7 +5,9 @@ import MainItems from '../Main/MainItems'
 import TotalSection from '../Main/TotalSection'
 import EmptyButton from '../Main/EmptyButton'
 
-function MainMenu() {
+function MainMenu(props) {
+
+    const {filteredItems} = props
 
     return (
 
@@ -13,7 +15,9 @@ function MainMenu() {
 
             <h2>Your Cart</h2>
 
-            <MainItems />
+            <MainItems 
+                filteredItems = {filteredItems}
+            />
             
             <TotalSection />
 

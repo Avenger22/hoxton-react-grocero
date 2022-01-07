@@ -3,7 +3,9 @@ import "../Main/MainItem.css"
 import '../../style.css'
 import "../../app.css"
 
-function MainItems() {
+function MainItems(props) {
+
+    const {filteredItems} = props
 
     return (
 
@@ -11,7 +13,9 @@ function MainItems() {
 
         <ul className="item-list cart--item-list">
 
-          <MainItem />
+          <MainItem 
+            filteredItems = {filteredItems}
+          />
 
         </ul>
 

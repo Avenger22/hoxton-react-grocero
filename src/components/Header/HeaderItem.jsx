@@ -3,7 +3,7 @@
 
 function HeaderItem(props) {
 
-    const {items} = props
+    const {item} = props
 
     //fixed a BUG here used {} before items.map and that is an error cause it expected an expression of jsx not an js return
     //also bug on item => {} because in arrow funcitons we are using just 1 return no multiple expressions etc
@@ -11,25 +11,21 @@ function HeaderItem(props) {
 
     return (
 
-        items.map(item => 
+        <li>
 
-            <li>
+            <button>X</button>
 
-                <button>X</button>
+            <div className="store--item-icon">
+                <img src={`../../assets/icons/${item.image}`} alt={item.name} />
+            </div>
 
-                <div className="store--item-icon">
-                    <img src={`../../assets/icons/${item.image}`} alt={item.name} />
-                </div>
+            <span className="stock-span-store">{`Stock: ${item.inStock}`}</span>
+            <span className="price-span-store">{`Price: ${item.price}`}</span>
+            <span className="name-span-store">{`Name: ${item.name}`}</span>
 
-                <span className="stock-span-store">{`Stock: ${item.inStock}`}</span>
-                <span className="price-span-store">{`Price: ${item.price}`}</span>
-                <span className="name-span-store">{`Name: ${item.name}`}</span>
+            <button>Add to cart</button>
 
-                <button>Add to cart</button>
-
-            </li>
-
-        )
+        </li>
 
     )
 

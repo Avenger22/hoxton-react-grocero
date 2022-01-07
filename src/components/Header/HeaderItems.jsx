@@ -5,15 +5,20 @@ import HeaderItem from "./HeaderItem"
 
 function HeaderItems(props) {
 
-    const {items} = props
+    const {filteredItems} = props
 
     return (
 
         <ul className="item-list store--item-list">
             
-            <HeaderItem 
-                items = {items}
-            />
+            {filteredItems.map(item => 
+
+                <HeaderItem 
+                    key = {`item-${item.id}`} //important for having each li an ID as KEY PROP
+                    item = {item}
+                />
+
+            )}
             
         </ul>
 

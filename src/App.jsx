@@ -13,19 +13,31 @@ function App() {
 
   //#region 'State Object'
   const [items, setItems] = useState(initialItems)
-  // console.log(items)
+  const [buttonCategories, setButtonCategories] = useState('')
+
+  const [clearClicked, setClearClicked] = useState(false)
+  const [buttonStoreAdd, setButtonStoreAdd] = useState('')
+  
+  const [buttonStoreRemove, setButtonStoreRemove] = useState('')
+  const [buttonCartCalculation, setButtonCartCalculation] = useState('')
   // #endregion
 
-  // #region 'Returning the HTML'
+  // #region 'Conditional rendering and control of app'
+  let filteredItems = items
+  // #endregion
+
+  // #region 'Returning the HTML, basically all the APP'
   return (
 
     <div className="app">
 
       <HeaderMenu 
-        items = {items}
+        filteredItems = {filteredItems}
       />
       
-      <MainMenu />
+      <MainMenu 
+        filteredItems = {filteredItems} 
+      />
      
     </div>
 

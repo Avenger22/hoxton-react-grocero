@@ -7,7 +7,7 @@ import "../Header/HeaderMenu.css"
 
 function HeaderMenu(props) {
 
-    const {items} = props
+    const {filteredItems} = props
 
     return (
 
@@ -16,7 +16,7 @@ function HeaderMenu(props) {
         <h1>Grocero</h1>
 
         <HeaderItems 
-          items = {items} 
+          filteredItems = {filteredItems} 
         />
 
         <div className="store--sort">
