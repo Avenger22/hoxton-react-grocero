@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 
 import './style.css'
-import './app.css'
+// import './app.css'
 
 const rootElement = document.querySelector('#root')
 ReactDOM.render(

@@ -1,19 +1,27 @@
-import '../../style.css'
-import '../../app.css'
+// import '../../style.css'
+// import '../../app.css'
 
-function HeaderItem() {
+function HeaderItem(props) {
+
+    const {items} = props
+
+    // console.log(items)
 
     return (
-        
-        <li>
 
-            <div className="store--item-icon">
-                <img src="../../assets/icons/001-beetroot.svg" alt="beetroot" />
-            </div>
-  
-            <button>Add to cart</button>
+        items.map(item => {
 
-        </li>
+            <li>
+
+                <div className="store--item-icon">
+                    <img src={`../../assets/icons/${item.image}`} alt={item.name} />
+                </div>
+    
+                <button>Add to cart</button>
+
+            </li>
+
+        })
 
     )
 

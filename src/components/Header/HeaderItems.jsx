@@ -1,15 +1,19 @@
-import '../../style.css'
-import '../../app.css'
+// import '../../style.css'
+// import '../../app.css'
 
 import HeaderItem from "./HeaderItem"
 
-function HeaderItems() {
+function HeaderItems(props) {
+
+    const {items} = props
 
     return (
 
         <ul className="item-list store--item-list">
             
-            <HeaderItem />
+            <HeaderItem 
+                items = {items}
+            />
             
         </ul>
 
