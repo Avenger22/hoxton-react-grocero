@@ -2,7 +2,6 @@
 import { useState } from 'react'
 
 import initialItems from '../src/data/data'
-import duplicateInitialItems from '../src/data/data2'
 
 import '../src/style.css'
 import '../src/App.css'
@@ -15,8 +14,6 @@ function App() {
 
   //#region 'State Object'
   const [items, setItems] = useState(initialItems)
-  const [itemsInitial, setItemsInitial] = useState(duplicateInitialItems)
-
   const [buttonCategories, setButtonCategories] = useState('')
 
   const [clearClicked, setClearClicked] = useState(false)
@@ -25,7 +22,7 @@ function App() {
   const [buttonStoreClicked, setButtonStoreClicked] = useState(false)
   const [cartItems, setCartItems] = useState([])
   
-  const [buttonStoreRemove, setButtonStoreRemove] = useState('')
+  const [buttonStoreRemove, setButtonStoreRemove] = useState('') //we had it []
   const [buttonCartCalculation, setButtonCartCalculation] = useState('')
 
   const [buttonSortOptions, setButtonSortOptions]  = useState('')
@@ -34,8 +31,7 @@ function App() {
 
   // #region 'Conditional rendering and control of app'
   let filteredItems = items //very important for conditional what to show, is connected with state and updating it etc
-  let initialFilteredItems = itemsInitial
-
+  let initialFilteredItems = items
 
   function filterByName(filteredItems) {
     return filteredItems.filter(item => item.name === buttonCategories)
@@ -60,15 +56,22 @@ function App() {
 
   }
   
+  function removeButtonStore(filteredItems) {
+    // return filteredItems.filter(item => !buttonStoreRemove.filter(element => element.name === item.name))
+    return filteredItems.filter(item => item.name !== buttonStoreRemove)
+  }
 
   if (buttonCategories !== '') {
     filteredItems = filterByName(filteredItems)
   }
 
-  else if (buttonCategories === '') {
-    filteredItems = initialFilteredItems
-  }
+  // else if (buttonCategories === '') {
+  //   filteredItems = initialFilteredItems
+  // }
 
+  if (buttonStoreRemove !== '') {
+    filteredItems = removeButtonStore(filteredItems)
+  }
 
   if (buttonSortOptions === 'alphabet' && buttonCategories === '') {
     filteredItems = filterBySortingAlphabet(filteredItems)
@@ -78,9 +81,10 @@ function App() {
     filteredItems = filterBySortingPrice(filteredItems)
   }
 
-  else if (buttonSortOptions === ''){
-    filteredItems = initialFilteredItems
-  }
+  // else if (buttonSortOptions === ''){
+  //   filteredItems = initialFilteredItems
+  //   setItems(filteredItems)
+  // }
   // #endregion
 
   // #region 'Returning the HTML, basically all the APP'
@@ -99,6 +103,8 @@ function App() {
 
         setButtonStoreClicked = {setButtonStoreClicked}
         setButtonClear = {setButtonClear}
+
+        buttonStoreRemove = {buttonStoreRemove}
       />
       
       <MainMenu 

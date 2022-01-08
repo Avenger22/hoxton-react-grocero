@@ -5,7 +5,7 @@ function HeaderItem(props) {
 
     //decounstructing an object
     const {
-        item, setButtonStoreRemove, setButtonStoreClicked, setButtonStoreAdd
+        item, setButtonStoreRemove, setButtonStoreClicked, setButtonStoreAdd, buttonStoreRemove
     } = props
 
     //fixed a BUG here used {} before items.map and that is an error cause it expected an expression of jsx not an js return
@@ -16,7 +16,14 @@ function HeaderItem(props) {
 
         <li>
 
-            <button>X</button>
+            <button onClick={function () {
+                // let updatedArrayRemove = [... buttonStoreRemove]
+                // updatedArrayRemove.push(item.name)
+                // setButtonStoreRemove(updatedArrayRemove)
+                setButtonStoreRemove(item.name)
+            }}>
+                X
+            </button>
 
             <div className="store--item-icon">
                 <img src={`../../assets/icons/${item.image}`} alt={item.name} />

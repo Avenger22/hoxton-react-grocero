@@ -5,7 +5,7 @@ function HeaderItems(props) {
     //decounstructing an object
     const {
         filteredItems, setButtonStoreRemove, 
-        setButtonStoreClicked, setButtonStoreAdd
+        setButtonStoreClicked, setButtonStoreAdd, buttonStoreRemove
     } = props
 
     return (
@@ -20,7 +20,7 @@ function HeaderItems(props) {
 
                     setButtonStoreRemove = {setButtonStoreRemove}
                     setButtonStoreAdd = {setButtonStoreAdd}
-
+                    buttonStoreRemove = {buttonStoreRemove}
                     setButtonStoreClicked = {setButtonStoreClicked}
                 />
 

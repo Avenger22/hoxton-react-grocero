@@ -9,7 +9,7 @@ function HeaderMenu(props) {
     const {
       filteredItems,setButtonCategories,
       setButtonStoreRemove, setButtonStoreClicked, setButtonStoreAdd, 
-      setButtonSortOptions, setButtonClear
+      setButtonSortOptions, setButtonClear, buttonStoreRemove
     } = props
 
     return (
@@ -22,7 +22,9 @@ function HeaderMenu(props) {
           filteredItems = {filteredItems} 
           setButtonStoreRemove = {setButtonStoreRemove}
 
+          buttonStoreRemove = {buttonStoreRemove}
           setButtonStoreAdd = {setButtonStoreAdd}
+          
           setButtonStoreClicked = {setButtonStoreClicked}
         />
 
