@@ -6,7 +6,7 @@ import "../../app.css"
 
 function MainItems(props) {
 
-    const {filteredItems, setCartItems, setButtonCartCalculation} = props
+    const {removeFromCart, addToCart, cartItems} = props
 
     return (
 
@@ -14,11 +14,17 @@ function MainItems(props) {
 
         <ul className="item-list cart--item-list">
 
-          <MainItem 
-            filteredItems = {filteredItems}
-            setCartItems = {setCartItems}
-            setButtonCartCalculation = {setButtonCartCalculation}
-          />
+          {cartItems.map(item => 
+
+              <MainItem 
+                removeFromCart={removeFromCart}
+                addToCart={addToCart}
+
+                key = {`item-${item.id}`} //important for having each li an ID as KEY PROP
+                item = {item}
+              />
+
+            )}
 
         </ul>
 

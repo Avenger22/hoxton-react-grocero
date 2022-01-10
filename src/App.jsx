@@ -10,6 +10,7 @@ import HeaderMenu from './components/Header/HeaderMenu'
 import MainMenu from './components/Main/MainMenu'
 // #endregion
 
+
 function App() {
 
   //#region 'State Object'
@@ -17,21 +18,18 @@ function App() {
   const [buttonCategories, setButtonCategories] = useState('')
 
   const [clearClicked, setClearClicked] = useState(false)
-  const [buttonStoreAdd, setButtonStoreAdd] = useState('')
-
-  const [buttonStoreClicked, setButtonStoreClicked] = useState(false)
-  const [cartItems, setCartItems] = useState([])
-  
-  const [buttonStoreRemove, setButtonStoreRemove] = useState('') //we had it []
-  const [buttonCartCalculation, setButtonCartCalculation] = useState('')
+  const [cartItems, setCartItems] = useState([]) //important for cart items array so i have 2 in state
 
   const [buttonSortOptions, setButtonSortOptions]  = useState('')
   const [buttonClear, setButtonClear]  = useState('')
+  const [buttonStoreRemove, setButtonStoreRemove] = useState(null)
   // #endregion
+
 
   // #region 'Conditional rendering and control of app'
   let filteredItems = items //very important for conditional what to show, is connected with state and updating it etc
-  let initialFilteredItems = items
+  
+  let initialFilteredItems = JSON.parse(JSON.stringify(items)) //great for having initial withotu mutating array from state
 
   function filterByName(filteredItems) {
     return filteredItems.filter(item => item.name === buttonCategories)
@@ -61,13 +59,67 @@ function App() {
     return filteredItems.filter(item => item.name !== buttonStoreRemove)
   }
 
+  function addToCart (item) {
+
+    // check if item is already in the cart
+    const updatedCart = JSON.parse(JSON.stringify(cartItems))
+
+    const match = updatedCart.find(cartItem => cartItem.id === item.id)
+
+    if (match) {
+      // if it is: increase quantity
+      match.quantity++
+    } 
+    
+    else {
+      // otherwise: add item to cart
+      const itemCopy = { ...item, quantity: 1 }
+      updatedCart.push(itemCopy)
+    }
+
+    setCartItems(updatedCart)
+
+  }
+
+  function removeFromCart (item) {
+
+    // check if item's quantity is 1
+    let updatedCart = JSON.parse(JSON.stringify(cartItems))
+    const match = updatedCart.find(cartItem => cartItem.id === item.id)
+
+    if (match.quantity === 1) {
+      // if it is: remove item from cart
+      updatedCart = updatedCart.filter(cartItem => cartItem.id !== item.id)
+    } 
+    
+    else {
+      // otherwise: decrease quantity
+      match.quantity--
+
+    }
+
+    setCartItems(updatedCart)
+  }
+
+  function calculateTotal () {
+
+    let total = 0
+
+    for (const item of cartItems) {
+      total += item.price * item.quantity
+    }
+
+    return total.toFixed(2)
+
+  }
+
   if (buttonCategories !== '') {
     filteredItems = filterByName(filteredItems)
   }
 
-  // else if (buttonCategories === '') {
-  //   filteredItems = initialFilteredItems
-  // }
+  else if (buttonCategories === '') {
+    filteredItems = initialFilteredItems
+  }
 
   if (buttonStoreRemove !== '') {
     filteredItems = removeButtonStore(filteredItems)
@@ -81,11 +133,11 @@ function App() {
     filteredItems = filterBySortingPrice(filteredItems)
   }
 
-  // else if (buttonSortOptions === ''){
-  //   filteredItems = initialFilteredItems
-  //   setItems(filteredItems)
-  // }
+  else if (buttonSortOptions === ''){
+    filteredItems = initialFilteredItems
+  }
   // #endregion
+
 
   // #region 'Returning the HTML, basically all the APP'
   return (
@@ -96,15 +148,11 @@ function App() {
         filteredItems = {filteredItems} //passing Props
 
         setButtonCategories = {setButtonCategories}
-        setButtonStoreRemove = {setButtonStoreRemove}
-
         setButtonSortOptions = {setButtonSortOptions}
-        setButtonStoreAdd = {setButtonStoreAdd}
 
-        setButtonStoreClicked = {setButtonStoreClicked}
         setButtonClear = {setButtonClear}
-
         buttonStoreRemove = {buttonStoreRemove}
+        addToCart = {addToCart}
       />
       
       <MainMenu 
@@ -112,7 +160,12 @@ function App() {
         setCartItems = {setCartItems}
         
         setClearClicked = {setClearClicked}
-        setButtonCartCalculation = {setButtonCartCalculation}
+        removeFromCart={removeFromCart}
+        addToCart={addToCart}
+        
+        calculateTotal={calculateTotal}
+        cartItems = {cartItems}
+        setCartItems = {setCartItems}
       />
      
     </div>

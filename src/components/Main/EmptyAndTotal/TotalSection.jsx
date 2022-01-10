@@ -3,7 +3,9 @@ import '../../../app.css'
 
 import '../EmptyAndTotal/TotalSection.css'
 
-function TotalSection() {
+function TotalSection(props) {
+
+    const {calculateTotal} = props 
 
     return (
 
@@ -14,7 +16,7 @@ function TotalSection() {
             </div>
 
             <div>
-                <span className="total-number">£0.00</span>
+                <span className="total-number">{calculateTotal()}</span>
             </div>
 
         </div>

@@ -4,27 +4,31 @@ import '../../app.css'
 import MainItems from '../Main/MainItems'
 import TotalSection from '../Main/EmptyAndTotal/TotalSection'
 import EmptyButton from '../Main/EmptyAndTotal/EmptyButton'
+import MainTitle from '../Main/MainTitle'
 
 function MainMenu(props) {
 
-    const {filteredItems, setClearClicked, setButtonCartCalculation, setCartItems} = props
+    const {setClearClicked, removeFromCart, addToCart, calculateTotal, cartItems, setCartItems} = props
 
     return (
 
         <main id="cart">
 
-            <h2>Your Cart</h2>
+            <MainTitle />
 
-            <MainItems 
-                filteredItems = {filteredItems}
-                setCartItems = {setCartItems}
-                setButtonCartCalculation = {setButtonCartCalculation}
+            <MainItems
+                removeFromCart= {removeFromCart}
+                addToCart= {addToCart}
+                cartItems = {cartItems}
             />
             
-            <TotalSection />
+            <TotalSection 
+                calculateTotal={calculateTotal}
+            />
 
             <EmptyButton 
                 setClearClicked = {setClearClicked}
+                setCartItems = {setCartItems}
             />
 
         </main>

@@ -1,5 +1,6 @@
 import HeaderItems from '../Header/Items/HeaderItems'
 import ButtonsWrapper from '../Header/Buttons/ButtonsWrapper'
+import HeaderTitle from '../Header/HeaderTitle'
 
 import "../Header/HeaderMenu.css"
 
@@ -7,25 +8,20 @@ function HeaderMenu(props) {
 
     //decounstructing an object
     const {
-      filteredItems,setButtonCategories,
-      setButtonStoreRemove, setButtonStoreClicked, setButtonStoreAdd, 
-      setButtonSortOptions, setButtonClear, buttonStoreRemove
+      filteredItems, setButtonCategories,
+      setButtonStoreRemove, setButtonSortOptions, setButtonClear, addToCart
     } = props
 
     return (
 
       <header id="store">
 
-        <h1>Grocero</h1>
+        <HeaderTitle />
 
         <HeaderItems 
           filteredItems = {filteredItems} 
           setButtonStoreRemove = {setButtonStoreRemove}
-
-          buttonStoreRemove = {buttonStoreRemove}
-          setButtonStoreAdd = {setButtonStoreAdd}
-          
-          setButtonStoreClicked = {setButtonStoreClicked}
+          addToCart = {addToCart}
         />
 
         <div className="store--sort">

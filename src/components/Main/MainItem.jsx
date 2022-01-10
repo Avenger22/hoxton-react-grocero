@@ -4,7 +4,7 @@ import '../../app.css'
 
 function MainItem(props) {
 
-    const {filteredItems, setCartItems, setButtonCartCalculation} = props
+    const {removeFromCart, addToCart, item} = props
     
     return (
 
@@ -12,15 +12,23 @@ function MainItem(props) {
 
             <img
                 className="cart--item-icon"
-                src="../../assets/icons/002-carrot.svg"
-                alt="beetroot"
+                src={`../../assets/icons/${item.image}`} 
+                alt={item.name}
             />
 
-            <p>beetroot</p>
+            <p>{item.name}</p>
 
-            <button className="quantity-btn remove-btn center">-</button>
-            <span className="quantity-text center">1</span>
-            <button className="quantity-btn add-btn center">+</button>
+            <button className="quantity-btn remove-btn center"
+            onClick={() => removeFromCart(item)}>
+                -
+            </button>
+
+            <span className="quantity-text center">{item.quantity}</span>
+
+            <button className="quantity-btn add-btn center"
+            onClick={() => addToCart(item)}>
+                +
+            </button>
 
         </li>
 
